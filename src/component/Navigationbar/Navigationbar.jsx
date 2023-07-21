@@ -11,6 +11,7 @@ import {
   MdOutlineOndemandVideo,
   MdOutlineVideogameAsset,
 } from "react-icons/md";
+import './Navigationbar.css'
 
 const Navigationbar = () => {
   return (
@@ -72,34 +73,43 @@ const Navigationbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-3xl gap-20 text-gray-500">
+        <ul className="menu menu-horizontal px-1 text-3xl gap-9 text-gray-500">
+          <p className="relative px-7">
           <NavLink
             to="/"
-            className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+            className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
   } 
           >
             <p>
               <AiFillHome />
+              {/* <span className="underline-cus"></span> */}
             </p>
           </NavLink>
-          <NavLink to="/user" className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+          </p>
+          <p className="relative px-7">
+          <NavLink to="/user" className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
   } >
             <p>
               <FiUsers />
             </p>
           </NavLink>
-          <NavLink to="/media" className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+          </p>
+          <p className="relative px-7">  
+          <NavLink to="/media" className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
   } >
             <p>
               <MdOutlineOndemandVideo />
             </p>
           </NavLink>
-          <NavLink className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+            </p>
+          <p className="relative px-7">   
+          <NavLink className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
   }  to="/play">
             <p>
               <MdOutlineVideogameAsset />
             </p>
           </NavLink>
+            </p>
         </ul>
       </div>
       <div className="navbar-end pr-4">
