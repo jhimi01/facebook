@@ -11,14 +11,6 @@
     left: 0;
   }
  
-  /* Remove default background and outline styles for the li elements when they are clicked */
-li:focus {
-    outline: none;
-    background: none;
-  }
-  li:hover{
-    background: none !important;
-  }
   
   /* Add a transition effect to the underline when the NavLink elements are active */
   .underline-cus::after {
