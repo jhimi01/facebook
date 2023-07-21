@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 import { AiFillHome } from 'react-icons/ai';
 import { FiUsers } from 'react-icons/fi';
-import { MdOutlineOndemandVideo } from 'react-icons/md';
+import { MdOutlineOndemandVideo, MdOutlineVideogameAsset } from 'react-icons/md';
 
 const Navigationbar = () => {
     return (
@@ -42,7 +42,7 @@ const Navigationbar = () => {
             <Link to='/'><p><AiFillHome /></p></Link>
             <Link to='/'><p><FiUsers /></p></Link>
             <Link to='/'><p><MdOutlineOndemandVideo /></p></Link>
-            <Link to='/'><p><AiFillHome /></p></Link>
+            <Link to='/'><p><MdOutlineVideogameAsset /></p></Link>
             
           </ul>
         </div>
