@@ -75,27 +75,31 @@ const Navigationbar = () => {
         <ul className="menu menu-horizontal px-1 text-3xl gap-20 text-gray-500">
           <NavLink
             to="/"
-            className={(isActive) => (isActive ? "text-[#1877F2]" : "")}
+            className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+  } 
           >
             <p>
               <AiFillHome />
             </p>
           </NavLink>
-          <Link to="/">
+          <NavLink to="/user" className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+  } >
             <p>
               <FiUsers />
             </p>
-          </Link>
-          <Link to="/">
+          </NavLink>
+          <NavLink to="/media" className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+  } >
             <p>
               <MdOutlineOndemandVideo />
             </p>
-          </Link>
-          <Link to="/">
+          </NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-[#1877F2]" : "text-[gray]"
+  }  to="/play">
             <p>
               <MdOutlineVideogameAsset />
             </p>
-          </Link>
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end pr-4">
