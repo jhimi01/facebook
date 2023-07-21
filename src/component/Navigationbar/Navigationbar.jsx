@@ -2,6 +2,10 @@ import React from 'react';
 import userpng from '../../../public/user.png'
 import fbpng from '../../../public/Facebook-logo.png'
 import { Link } from 'react-router-dom';
+import { BiSearch } from 'react-icons/bi';
+import { AiFillHome } from 'react-icons/ai';
+import { FiUsers } from 'react-icons/fi';
+import { MdOutlineOndemandVideo } from 'react-icons/md';
 
 const Navigationbar = () => {
     return (
@@ -23,23 +27,23 @@ const Navigationbar = () => {
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <Link to='/'>
+         <div className='flex items-center '>
+         <Link to='/'>
             <img className='h-12' src={fbpng} alt="" />
           </Link>
+         <div className='flex items-center relative'>
+         <input type="text" name="text" className='input bg-base-200 rounded-full' placeholder='Search Facebook' />
+          <BiSearch className='text-xl absolute right-3 text-gray-400'/>
+         </div>
+         </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li><a>Item 1</a></li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </details>
-            </li>
-            <li><a>Item 3</a></li>
+          <ul className="menu menu-horizontal px-1 text-2xl">
+            <Link to='/'><p><AiFillHome /></p></Link>
+            <Link to='/'><p><FiUsers /></p></Link>
+            <Link to='/'><p><MdOutlineOndemandVideo /></p></Link>
+            <Link to='/'><p><AiFillHome /></p></Link>
+            
           </ul>
         </div>
         <div className="navbar-end">
