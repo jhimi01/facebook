@@ -14,8 +14,59 @@ import {
 import './Navigationbar.css'
 
 const Navigationbar = () => {
+
+
+  // navlinks
+  const Navigationslinks = () => {
+    return (
+      <>
+        <p className="relative px-10">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
+            }
+          >
+            <AiFillHome />
+          </NavLink>
+        </p>
+        <p className="relative px-10">
+          <NavLink
+            to="/user"
+            className={({ isActive }) =>
+              isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
+            }
+          >
+            <FiUsers />
+          </NavLink>
+        </p>
+        <p className="relative px-10">
+          <NavLink
+            to="/media"
+            className={({ isActive }) =>
+              isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
+            }
+          >
+            <MdOutlineOndemandVideo />
+          </NavLink>
+        </p>
+        <p className="relative px-10">
+          <NavLink
+            to="/play"
+            className={({ isActive }) =>
+              isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
+            }
+          >
+            <MdOutlineVideogameAsset />
+          </NavLink>
+        </p>
+      </>
+    );
+  };
+  
+
   return (
-    <div style={{ height: "56px" }} className="navbar bg-base-100 shadow-lg">
+    <div style={{ height: "56px" }} className="navbar bg-base-100 shadow-md sticky top-0">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,23 +89,7 @@ const Navigationbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <Navigationslinks />
           </ul>
         </div>
         <div className="flex items-center ">
@@ -73,43 +108,9 @@ const Navigationbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-3xl gap-9 text-gray-500">
-          <p className="relative px-7">
-          <NavLink
-            to="/"
-            className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
-  } 
-          >
-            <p>
-              <AiFillHome />
-              {/* <span className="underline-cus"></span> */}
-            </p>
-          </NavLink>
-          </p>
-          <p className="relative px-7">
-          <NavLink to="/user" className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
-  } >
-            <p>
-              <FiUsers />
-            </p>
-          </NavLink>
-          </p>
-          <p className="relative px-7">  
-          <NavLink to="/media" className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
-  } >
-            <p>
-              <MdOutlineOndemandVideo />
-            </p>
-          </NavLink>
-            </p>
-          <p className="relative px-7">   
-          <NavLink className={({ isActive }) => isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
-  }  to="/play">
-            <p>
-              <MdOutlineVideogameAsset />
-            </p>
-          </NavLink>
-            </p>
+        <ul className="menu menu-horizontal px-1 text-2xl gap-4 text-gray-500">
+         
+         <Navigationslinks />
         </ul>
       </div>
       <div className="navbar-end pr-4">

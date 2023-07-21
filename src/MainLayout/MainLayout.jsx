@@ -6,7 +6,9 @@ const MainLayout = () => {
     return (
         <>
          <Navigationbar />
+         <div className='bg-[#f0f2f5] h-[100vh]'>
          <Outlet></Outlet>   
+         </div>
         </>
     );
 };
