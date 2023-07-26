@@ -3,10 +3,12 @@ import userpng from "../../../public/user.png";
 import fbpng from "../../../public/Facebook-logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { BiSearch, BiSolidBellRing } from "react-icons/bi";
-import { AiFillHome } from "react-icons/ai";
-import { FiUsers } from "react-icons/fi";
+import { AiFillHome, AiFillSetting } from "react-icons/ai";
+import { FiLogOut, FiUsers } from "react-icons/fi";
+// import { IoLogOut } from "react-icons/io";
 import { FaFacebookMessenger } from "react-icons/fa";
 import { TbGridDots } from "react-icons/tb";
+import { BsFillExclamationSquareFill, BsFillMoonFill, BsQuestionCircleFill } from "react-icons/bs";
 import {
   MdOutlineOndemandVideo,
   MdOutlineVideogameAsset,
@@ -150,12 +152,24 @@ const Navigationbar = () => {
               <hr  className="my-3"/>
                 <p className="text-xl font-semibold text-[#1877F2]">see all profiles</p>
               </div>
-              <li>
-                <a>Settings</a>
-              </li>
-             <Link to='/login'>
-              <li>login</li>
-             </Link>
+              {/* --------------- icons */}
+              <div className="my-5 space-y-1">
+                <div>
+                  <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><AiFillSetting className="bg-base-300 p-2 text-4xl rounded-full"/> setting & Privacy</p>
+                </div>
+                <div>
+                  <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><BsQuestionCircleFill className="bg-base-300 p-2 text-4xl rounded-full"/> Help & Support</p>
+                </div>
+                <div>
+                  <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><BsFillMoonFill className="bg-base-300 p-2 text-4xl rounded-full"/> Display & accessibilty</p>
+                </div>
+                <div>
+                  <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><BsFillExclamationSquareFill className="bg-base-300 p-2 text-4xl rounded-full"/> Give feedback</p>
+                </div>
+                <div>
+                 <Link to='/login'> <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><FiLogOut className="bg-base-300 p-2 text-4xl rounded-full"/> logout</p></Link>
+                </div>
+              </div>
             </ul>
           </div>
         </div>
