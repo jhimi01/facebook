@@ -139,20 +139,23 @@ const Navigationbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow bg-base-100 rounded-box w-96"
             >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
+              {/* profile */}
+              <div style={{ 'box-shadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 rounded-xl">
+              <div className="w-10 rounded-full flex items-center gap-3 p-1">
+                <img src={userpng} />
+                <h3 className="text-xl font-semibold">Jhimi</h3>
+              </div>
+              <hr  className="my-3"/>
+                <p className="text-xl font-semibold text-[#1877F2]">see all profiles</p>
+              </div>
               <li>
                 <a>Settings</a>
               </li>
-              <li>
-                <a>Logout</a>
-              </li>
+             <Link to='/login'>
+              <li>login</li>
+             </Link>
             </ul>
           </div>
         </div>
