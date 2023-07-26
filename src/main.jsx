@@ -22,12 +22,12 @@ const router = createBrowserRouter([
       {path: '/user' , element: <Users>user</Users>},
       {path: '/media' , element: <p>media</p>},
       {path: '/play' , element: <p>play</p>},
+      {path:'/login' , element: <Login></Login>},
+      {path:'/signup' , element: <SignUp></SignUp>},
       {path: '*', element: <ErrorPage></ErrorPage>},
     
     ]
-  },
-  {path:'/login' , element: <Login></Login>},
-  {path:'/signup' , element: <SignUp></SignUp>},
+  }
  
 ]);
 

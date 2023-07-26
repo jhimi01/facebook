@@ -2,16 +2,9 @@ import React from 'react';
 
 const Login = () => {
     return (
-        // <div>
-        //     <div className='flex items-center justify-center h-full flex-col'>
-        //         <h1 className='text-6xl font-bold text-[#1877F2]'>facebook</h1>
-        //         <h3 className='text-3xl'>Facebook helps you connect and share with the people in your life.</h3>
-        //     </div>
-        //     <div></div>
-        // </div>
         <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row">
-    <div className="text-center lg:text-left">
+    <div className="text-center lg:text-left space-y-3">
     <h1 className='text-6xl font-bold text-[#1877F2]'>facebook</h1>
           <h3 className='text-3xl'>Facebook helps you connect and share with the people in your life.</h3>
     </div>
