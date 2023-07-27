@@ -1,9 +1,14 @@
 import React from 'react';
+import Friends from '../../component/Friends/Friends';
+import Icons from '../../component/icons/icons';
+import Feed from '../../component/Feed/Feed';
 
 const Home = () => {
     return (
-        <div >
-            home
+        <div className='flex items-center gap-10 pt-7'>
+        <Icons></Icons>
+        <Feed></Feed>
+         <Friends></Friends>
         </div>
     );
 };
