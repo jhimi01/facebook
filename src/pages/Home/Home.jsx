@@ -5,7 +5,7 @@ import Feed from '../../component/Feed/Feed';
 
 const Home = () => {
     return (
-        <div className='flex items-center gap-10 pt-7'>
+        <div className='flex pt-7 gap-10'>
         <Icons></Icons>
         <Feed></Feed>
          <Friends></Friends>

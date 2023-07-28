@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
+import { categories  } from './Categoriesdata';
 
 const Icons = () => {
-    useEffect(()=>{
-        fetch('Icons.json')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-    },[])
     return (
-        <div className='bg-base-300 w-[20%]'>
-            {/* this a section of facebook icons */}
-        </div>
+        <div className='w-[20%] overflow-auto h-[100vh]'>
+        {categories.map(item => <p className='text-2xl' key={item.label}>{item.label}</p>)} {/* Fixed the syntax error */}
+      </div>
     );
 };
 
