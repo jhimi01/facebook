@@ -25,6 +25,7 @@ const Navigationbar = () => {
         <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/"
+            title="home"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
@@ -35,6 +36,7 @@ const Navigationbar = () => {
         <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/user"
+            title="users"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
@@ -45,6 +47,7 @@ const Navigationbar = () => {
         <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/media"
+            title="media"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
@@ -55,6 +58,7 @@ const Navigationbar = () => {
         <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/play"
+            title="Games"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
