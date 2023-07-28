@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import userpng from "../../../public/user.png";
-import { AiFillLike, AiOutlineComment, AiOutlineLike } from 'react-icons/ai';
+import { AiFillCloseCircle, AiFillLike, AiOutlineComment, AiOutlineLike } from 'react-icons/ai';
 import { PiShareFatLight } from 'react-icons/pi';
 
 const SinglePost = ({img, authorName, email, status,uploadedtime, likes, comments, share}) => {
+
+  const [opneModal, setOpenModal] = useState(false)
+
     return (
         <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className='bg-base-100 rounded-xl my-5 py-4'>
             <div className='flex justify-between px-4'>
@@ -39,8 +42,20 @@ const SinglePost = ({img, authorName, email, status,uploadedtime, likes, comment
           <p className='flex items-center gap-2  py-2'><AiFillLike className='text-[#1877F2] text-2xl'/>likes {likes}</p>
 
            {/* Open the modal using ID.showModal() method */}
-<button className='hover:underline' onClick={()=>window.my_modal_2.showModal()}>comments {comments?.length}</button>
-
+<button className='hover:underline' onClick={()=>setOpenModal(!opneModal)}>comments {comments?.length}</button>
+{opneModal && <div className='bg-[#f3f3f3] p-5 rounded-md  absolute w-[400px]'>
+              <div className='flex items-center justify-between mb-4 text-xl shadow-2xl'>
+              <h1>Comments {comments?.length}</h1>
+              <button onClick={()=>setOpenModal(!opneModal)}><AiFillCloseCircle /></button>
+              </div>
+               
+               <div>
+                {comments?.map(comment => <div className='bg-base-300 rounded-2xl py-2 text-sm px-2 mb-3'>
+                <h3 className='font-bold'>{comment?.authorName}</h3>
+                <p className='text-gray-500 font-thin'>{comment?.text}</p>
+                </div>)}
+               </div>
+            </div>}
           </div>
            <hr />
            <div className='flex items-center justify-around pt-3'>
