@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
+import axios from 'axios'
 
 
 const SignUp = () => {
@@ -42,6 +43,19 @@ const onSubmit = async data => {
             console.log(userlogin)
             updateuser(name, imageUrl)
             .then(()=>{
+              const users = {
+                authorName : name,
+                img :imageUrl,
+                email,
+              }
+              axios.post('http://localhost:5000/users', users )
+              .then((res)=>{
+                  console.log('post', res.data)
+                  navigate('/user')
+              }) .catch((error) => {
+                  console.error('Post request failed:', error);
+                  // Handle error if the post request fails
+                });
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',

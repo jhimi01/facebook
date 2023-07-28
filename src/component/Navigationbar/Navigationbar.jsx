@@ -181,7 +181,7 @@ const Navigationbar = () => {
                 <div>
                   <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><BsFillExclamationSquareFill className="bg-base-300 p-2 text-4xl rounded-full"/> Give feedback</p>
                 </div>
-                <div>
+                <div className="cursor-pointer">
                  {user ? <p onClick={handleLogout} className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><FiLogOut className="bg-base-300 p-2 text-4xl rounded-full"/> logout</p> : <Link to='/login'><p onClick={handleLogout} className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><FiLogOut className="bg-base-300 p-2 text-4xl rounded-full"/> login</p></Link> }
                 
                  
