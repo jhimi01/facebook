@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 const SignUp = () => {
@@ -44,17 +42,31 @@ const onSubmit = async data => {
             console.log(userlogin)
             updateuser(name, imageUrl)
             .then(()=>{
-                toast("Wow so easy!")
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
               navigate(from, { replace: true });
             }).catch(err => {
               console.log(err.message);
-              toast.error(err.message);
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+              })
             })
             setError('')
             reset()
         }).catch(err => {
             setError(err.message)
-            toast("Wow so easy!")
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            })
         })
 
 
@@ -63,7 +75,11 @@ const onSubmit = async data => {
       }catch (error) {
         setLoading(false);
         console.log(error.message);
-        toast("Wow so easy!")
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        })
       }
       
 

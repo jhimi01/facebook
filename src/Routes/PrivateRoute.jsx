@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const PrivateRoute = ({children}) => {
     const { user, loader} = useContext(AuthContext)
@@ -15,32 +15,9 @@ const PrivateRoute = ({children}) => {
     if (user) {
         return children;
     }
-    toast.warn('🦄 Wow so easy!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
+    Swal.fire('You have to login first')
     return <>
         <Navigate to="/login" state={{ from: location }} replace />
-        <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
-{/* Same as */}
-<ToastContainer />
     </>
 
 };

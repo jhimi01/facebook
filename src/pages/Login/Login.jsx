@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
-import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -17,16 +17,13 @@ const Login = () => {
       .then(res =>{
         const userlogin = res.user;
         navigate(from, { replace: true });
-        toast.success('🦄 Wow so easy!', {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          });
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
         setError('')
       })
       .catch(err => {
@@ -65,18 +62,6 @@ const Login = () => {
         </div>
       </div>
     </form>
-    <ToastContainer
-position="bottom-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
   </div>
 </div>
     );
