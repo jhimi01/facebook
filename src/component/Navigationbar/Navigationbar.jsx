@@ -22,44 +22,44 @@ const Navigationbar = () => {
   const Navigationslinks = () => {
     return (
       <>
-        <p className="relative px-10">
+        <p className="relative px-6 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <AiFillHome />
+            <p className="p-4"><AiFillHome /></p>
           </NavLink>
         </p>
-        <p className="relative px-10">
+        <p className="relative px-6 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/user"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <FiUsers />
+            <p className="p-4"><FiUsers /></p>
           </NavLink>
         </p>
-        <p className="relative px-10">
+        <p className="relative px-6 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/media"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <MdOutlineOndemandVideo />
+            <p className="p-4"><MdOutlineOndemandVideo /></p>
           </NavLink>
         </p>
-        <p className="relative px-10">
+        <p className="relative px-6 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/play"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <MdOutlineVideogameAsset />
+            <p className="p-4"><MdOutlineVideogameAsset /></p>
           </NavLink>
         </p>
       </>
