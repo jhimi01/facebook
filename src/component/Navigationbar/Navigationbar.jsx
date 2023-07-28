@@ -22,44 +22,44 @@ const Navigationbar = () => {
   const Navigationslinks = () => {
     return (
       <>
-        <p className="relative px-6 hover:bg-base-200 rounded-xl">
+        <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <p className="p-4"><AiFillHome /></p>
+            <p className="px-9 py-4"><AiFillHome /></p>
           </NavLink>
         </p>
-        <p className="relative px-6 hover:bg-base-200 rounded-xl">
+        <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/user"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <p className="p-4"><FiUsers /></p>
+            <p className="px-9 py-4"><FiUsers /></p>
           </NavLink>
         </p>
-        <p className="relative px-6 hover:bg-base-200 rounded-xl">
+        <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/media"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <p className="p-4"><MdOutlineOndemandVideo /></p>
+            <p className="px-9 py-4"><MdOutlineOndemandVideo /></p>
           </NavLink>
         </p>
-        <p className="relative px-6 hover:bg-base-200 rounded-xl">
+        <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
             to="/play"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"
             }
           >
-            <p className="p-4"><MdOutlineVideogameAsset /></p>
+            <p className="px-9 py-4"><MdOutlineVideogameAsset /></p>
           </NavLink>
         </p>
       </>
