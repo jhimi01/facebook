@@ -1,6 +1,75 @@
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
+    const { register, handleSubmit, watch, formState: { errors }, reset  } = useForm();
+
+    const { signupemail, updateuser, login} = useContext(AuthContext) 
+
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+
+const onSubmit = async data => {
+    const {name, email, password, image} = data
+      console.log(data)
+
+          // create a FormData onject and append the image file
+          const formData = new FormData();
+          formData.append('image', image[0]);
+          // make a post request to Imgbb api
+          const url = `https://api.imgbb.com/1/upload?key=${
+        import.meta.env.VITE_IMGBB_API_KEY
+      }`
+      try{
+        const response = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        })
+        const result = await response.json();
+
+        // extract the image url from the response
+        const imageUrl = result?.data?.display_url;
+        // handle user registration with image url
+        signupemail(email, password)
+        .then(result => {
+            const userlogin = result.user;
+            console.log(userlogin)
+            updateuser(name, imageUrl)
+            .then(()=>{
+                toast("Wow so easy!")
+              navigate(from, { replace: true });
+            }).catch(err => {
+              console.log(err.message);
+              toast.error(err.message);
+            })
+            setError('')
+            reset()
+        }).catch(err => {
+            setError(err.message)
+            toast("Wow so easy!")
+        })
+
+
+
+
+      }catch (error) {
+        setLoading(false);
+        console.log(error.message);
+        toast("Wow so easy!")
+      }
+      
+
+     
+  };
+
     return (
         <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
@@ -8,25 +77,43 @@ const SignUp = () => {
     <h1 className='text-6xl font-bold text-[#1877F2]'>facebook</h1>
           <h3 className='text-3xl'>Facebook helps you connect and share with the people in your life.</h3>
     </div>
-    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <div className="card-body">
-        <div className="form-control">
-          <input type="text" placeholder="Your Name" className="input input-bordered font-semibold" />
-        </div>
-        <div className="form-control">
-          <input type="text" placeholder="email address or phone number" className="input input-bordered font-semibold" />
-        </div>
-        <div className="form-control">
-          <input type="file" placeholder="email address or phone number" className="input input-bordered font-semibold" />
-        </div>
-        <div className="form-control">
-          <input type="text" placeholder="password" className="input input-bordered font-semibold my-2" />
-        </div>
-       <div className="form-control">
-          <button className="w-3/4 py-3 rounded-md mx-auto bg-[#42b72a] capitalize text-lg font-semibold text-white">create new account</button>
-        </div>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-3">
+           <div className="card-body">
+           <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input type="text" placeholder="name" className="input input-bordered" {...register("name", { required: true })} />
+                {errors.name && <span className='text-red-500'>This field is required</span>}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input type="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
+                {errors.email && <span className='text-red-500'>This field is required</span>}
+              </div>
+              <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input type="file" placeholder="photo URL" className="input input-bordered"  accept='image/*' {...register("image")} />
+            </div>
+            {/* password input field */}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input type="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })} />
+                {errors.password && <span className='text-red-500'>This field is required</span>}
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn bg-[#42b72a] text-white">Create account</button>
+                {error && <span className="text-red-500 text-xs">{error}</span>}
+              </div>
+              <Link to='/login'><p className='text-[#407bff] underline text-sm'>Already have an account? Login</p></Link>
+           </div>
+            </form>
   </div>
 </div>
     );

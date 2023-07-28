@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import userpng from "../../../public/user.png";
 import { BiSearch } from 'react-icons/bi';
 import { IoMdPhotos } from 'react-icons/io';
@@ -8,11 +8,12 @@ import usePsots from '../../hooks/usePsots';
 import SinglePost from '../SinglePost/SinglePost';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Feed = () => {
 
   const { posts, isLoading } = usePsots()
-  console.log(posts)
+  const {user} = useContext(AuthContext)
 
   
 
@@ -20,7 +21,7 @@ const Feed = () => {
         <div className='w-[40%] mx-auto'>
             <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 bg-base-100 rounded-xl ">
               <div className="flex items-center gap-3 p-1">
-                <img className='rounded-full w-10' src={userpng} />
+              {user?  <img className="w-10 h-10 object-cover rounded-full" src={user?.photoURL} /> :  <img className="w-10 h-10 object-cover rounded-full" src={userpng} />}
                 <div className="flex items-center  w-full">
             <input
               type="text"

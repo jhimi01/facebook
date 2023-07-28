@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import userpng from "../../../public/user.png";
 import fbpng from "../../../public/Facebook-logo.png";
 import { Link, NavLink } from "react-router-dom";
@@ -14,9 +14,18 @@ import {
   MdOutlineVideogameAsset,
 } from "react-icons/md";
 import './Navigationbar.css'
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navigationbar = () => {
 
+  const {user, logout} = useContext(AuthContext)
+  const handleLogout = ()=>{
+    logout()
+    .then(()=>{})
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
   // navlinks
   const Navigationslinks = () => {
@@ -141,7 +150,8 @@ const Navigationbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={userpng} />
+              {user?  <img  src={user?.photoURL} /> :  <img src={userpng} />}
+               
               </div>
             </label>
             <ul
@@ -150,8 +160,8 @@ const Navigationbar = () => {
             >
               {/* profile */}
               <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 rounded-xl">
-              <div className="w-10 rounded-full flex items-center gap-3 p-1">
-                <img src={userpng} />
+              <div className="rounded-full flex items-center gap-3 p-1">
+              {user?  <img className="w-10 h-10 object-cover rounded-full" src={user?.photoURL} /> :  <img className="w-10 h-10 object-cover rounded-full" src={userpng} />}
                 <h3 className="text-xl font-semibold">Jhimi</h3>
               </div>
               <hr  className="my-3"/>
@@ -172,7 +182,9 @@ const Navigationbar = () => {
                   <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><BsFillExclamationSquareFill className="bg-base-300 p-2 text-4xl rounded-full"/> Give feedback</p>
                 </div>
                 <div>
-                 <Link to='/login'> <p className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><FiLogOut className="bg-base-300 p-2 text-4xl rounded-full"/> logout</p></Link>
+                 {user ? <p onClick={handleLogout} className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><FiLogOut className="bg-base-300 p-2 text-4xl rounded-full"/> logout</p> : <Link to='/login'><p onClick={handleLogout} className="flex hover:bg-base-200 py-2 px-3 rounded-xl items-center text-xl gap-3"><FiLogOut className="bg-base-300 p-2 text-4xl rounded-full"/> login</p></Link> }
+                
+                 
                 </div>
               </div>
             </ul>
