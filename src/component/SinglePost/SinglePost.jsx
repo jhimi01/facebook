@@ -1,7 +1,7 @@
 import React from 'react';
 import userpng from "../../../public/user.png";
 import { AiFillLike, AiOutlineComment, AiOutlineLike } from 'react-icons/ai';
-import { FaShare } from 'react-icons/fa';
+import { PiShareFatLight } from 'react-icons/pi';
 
 const SinglePost = ({img, authorName, email, status,uploadedtime, likes, comments, share}) => {
     return (
@@ -38,16 +38,15 @@ const SinglePost = ({img, authorName, email, status,uploadedtime, likes, comment
           <div className='flex items-center justify-between px-4 font-semibold'>
           <p className='flex items-center gap-2  py-2'><AiFillLike className='text-[#1877F2] text-2xl'/>likes {likes}</p>
 
-           {/* <p className=''>comments {comments?.length}</p> */}
            {/* Open the modal using ID.showModal() method */}
 <button className='hover:underline' onClick={()=>window.my_modal_2.showModal()}>comments {comments?.length}</button>
 
           </div>
            <hr />
-           <div className='flex items-center justify-around text-3xl pt-3'>
-                <button><AiOutlineLike /></button>
-                <button><AiOutlineComment /></button>
-                <button><FaShare /></button>
+           <div className='flex items-center justify-around pt-3'>
+                <button className='text-xl flex items-center   gap-2'><AiOutlineLike className='text-2xl' /> Like</button>
+                <button className='text-xl flex items-center   gap-2'><AiOutlineComment className='text-2xl' />Comment</button>
+                <button className='text-xl flex items-center   gap-2'><PiShareFatLight className='text-2xl' />Share</button>
             </div>
            </div>
            
