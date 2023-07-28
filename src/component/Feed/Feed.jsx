@@ -21,7 +21,7 @@ const Feed = () => {
         <div className='w-[40%] mx-auto'>
             <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 bg-base-100 rounded-xl ">
               <div className="flex items-center gap-3 p-1">
-              {user?  <img className="w-10 h-10 object-cover rounded-full" src={user?.photoURL} /> :  <img className="w-10 h-10 object-cover rounded-full" src={userpng} />}
+              {user ?  <img className="w-10 h-10 object-cover rounded-full" src={user?.photoURL} /> :  <img className="w-10 h-10 object-cover rounded-full" src={userpng} />}
                 <div className="flex items-center  w-full">
             <input
               type="text"

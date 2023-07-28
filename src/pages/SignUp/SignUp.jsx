@@ -127,7 +127,7 @@ const onSubmit = async data => {
               <label className="label">
                 <span className="label-text">Photo URL</span>
               </label>
-              <input type="file" placeholder="photo URL" className="input input-bordered"  accept='image/*' {...register("image")} />
+              <input type="file" placeholder="photo URL" className="input input-bordered"  accept='image/*' {...register("image", { required: true })} />
             </div>
             {/* password input field */}
               <div className="form-control">

@@ -12,8 +12,8 @@ const Users = () => {
               <Helmet>
                 <title>user | facebook</title>
             </Helmet>
-           <div className='flex justify-between'>
-           <div className='bg-base-100 w-[20%] pl-5 shadow-2xl h-[90vh] pt-4'>
+           <div className='flex'>
+           <div className='bg-base-100 w-[20%] pl-5 shadow-2xl h-[100vh] pt-4 sticky top-0'>
            <h1 className='text-3xl font-bold pl-4'>Friends</h1>
                 <p className='my-2 py-2 hover:bg-base-200 pl-4 rounded-l-lg'><Link to='/user/users' className='flex items-center gap-2 text-xl font-semibold'><MdGroups2 className=''/> Home </Link></p>
                 <p className='my-2 py-2 hover:bg-base-200 pl-4 rounded-l-lg'><Link to='/user/users' className='flex items-center gap-2 text-xl font-semibold'><BiSolidUserPlus className=''/> Friend Request</Link></p>
