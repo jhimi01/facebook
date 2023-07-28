@@ -7,87 +7,93 @@ import {
   GiCaveEntrance,
   GiForestCamp,
   GiIsland,
+  GiWaterDrop,
   GiWindmill,
 } from 'react-icons/gi'
-import { FaSkiing } from 'react-icons/fa'
-import { BsSnow } from 'react-icons/bs'
+import { FaSeedling, FaSkiing, FaUserFriends } from 'react-icons/fa'
+import { BsCalendar2EventFill, BsMessenger, BsSnow } from 'react-icons/bs'
 import { IoDiamond } from 'react-icons/io5'
-import { MdOutlineVilla } from 'react-icons/md'
+import { MdGroups, MdOutlineVilla } from 'react-icons/md'
+import { BiSolidUserCircle } from 'react-icons/bi'
+import { GrAnnounce } from 'react-icons/gr'
+import { FcBookmark, FcClock, FcFeedIn, FcVideoCall } from 'react-icons/fc'
+import { AiFillFlag, AiFillMessage } from 'react-icons/ai'
+import { SiLighthouse } from 'react-icons/si'
 
 export const categories = [
   {
-    label: 'Beach',
-    icon: TbBeach,
+    label: 'jhimi',
+    icon: BiSolidUserCircle,
     description: 'This property is close to the beach!',
   },
   {
-    label: 'Windmills',
-    icon: GiWindmill,
+    label: 'Firends',
+    icon: FaUserFriends,
     description: 'This property is has windmills!',
   },
   {
-    label: 'Modern',
-    icon: MdOutlineVilla,
+    label: 'Memories',
+    icon: FcClock,
     description: 'This property is modern!',
   },
   {
-    label: 'Countryside',
-    icon: TbMountain,
+    label: 'Saved',
+    icon: FcBookmark,
     description: 'This property is in the countryside!',
   },
   {
-    label: 'Pools',
-    icon: TbPool,
+    label: 'Feeds',
+    icon: FcFeedIn,
     description: 'This is property has a beautiful pool!',
   },
   {
-    label: 'Islands',
-    icon: GiIsland,
+    label: 'video',
+    icon: FcVideoCall,
     description: 'This property is on an island!',
   },
   {
-    label: 'Lake',
-    icon: GiBoatFishing,
+    label: 'Ad Center',
+    icon: GrAnnounce,
     description: 'This property is near a lake!',
   },
   {
-    label: 'Skiing',
-    icon: FaSkiing,
+    label: 'Blood MAnager',
+    icon: GiWaterDrop,
     description: 'This property has skiing activities!',
   },
   {
-    label: 'Castles',
-    icon: GiCastle,
+    label: 'Climate Science Center',
+    icon: FaSeedling,
     description: 'This property is an ancient castle!',
   },
   {
-    label: 'Caves',
-    icon: GiCaveEntrance,
+    label: 'Events',
+    icon: BsCalendar2EventFill,
     description: 'This property is in a spooky cave!',
   },
   {
-    label: 'Camping',
-    icon: GiForestCamp,
+    label: 'Messenger',
+    icon: BsMessenger,
     description: 'This property offers camping activities!',
   },
   {
-    label: 'Arctic',
-    icon: BsSnow,
+    label: 'Groups',
+    icon: MdGroups,
     description: 'This property is in arctic environment!',
   },
   {
-    label: 'Desert',
-    icon: GiCactus,
+    label: 'Messenger Kids',
+    icon: AiFillMessage,
     description: 'This property is in the desert!',
   },
   {
-    label: 'Barns',
-    icon: GiBarn,
+    label: 'Marketplace',
+    icon: SiLighthouse,
     description: 'This property is in a barn!',
   },
   {
-    label: 'Lux',
-    icon: IoDiamond,
+    label: 'Pages',
+    icon: AiFillFlag,
     description: 'This property is brand new and luxurious!',
   },
 ]

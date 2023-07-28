@@ -11,14 +11,14 @@ const Feed = () => {
             <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 rounded-xl bg-base-100">
               <div className="flex items-center gap-3 p-1">
                 <img className='rounded-full w-10' src={userpng} />
-                <div className="flex items-center relative w-full">
+                <div className="flex items-center  w-full">
             <input
               type="text"
               name="text"
               className="py-2 md:px-4 px-1 bg-base-200 rounded-full w-full"
               placeholder="What's on your mind, jhimi?"
             />
-            <BiSearch className="text-xl absolute right-3 text-gray-400" />
+           
           </div>
               </div>
           <hr  className="my-3"/>

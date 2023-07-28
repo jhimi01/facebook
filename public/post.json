@@ -1,0 +1,39 @@
+[
+    {
+      "img": "https://example.com/image1.jpg",
+      "author": "John Doe",
+      "status": "Lorem ipsum dolor sit amet.",
+      "uploadedtime": "2023-07-28T12:34:56Z",
+      "likes": 100,
+      "comments": 25,
+      "share": 10
+    },
+    {
+      "img": "https://example.com/image2.jpg",
+      "author": "Jane Smith",
+      "status": "Consectetur adipiscing elit.",
+      "uploadedtime": "2023-07-28T15:45:22Z",
+      "likes": 250,
+      "comments": 50,
+      "share": 30
+    },
+    {
+      "img": "https://example.com/image3.jpg",
+      "author": "Michael Johnson",
+      "status": "Sed do eiusmod tempor incididunt ut labore.",
+      "uploadedtime": "2023-07-28T18:15:10Z",
+      "likes": 300,
+      "comments": 75,
+      "share": 20
+    },
+    {
+      "img": "https://example.com/image4.jpg",
+      "author": "Emily Williams",
+      "status": "Ut enim ad minim veniam.",
+      "uploadedtime": "2023-07-28T21:05:42Z",
+      "likes": 150,
+      "comments": 35,
+      "share": 15
+    }
+  ]
+  
