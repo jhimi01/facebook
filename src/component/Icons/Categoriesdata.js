@@ -16,7 +16,7 @@ import { IoDiamond } from 'react-icons/io5'
 import { MdGroups, MdOutlineVilla } from 'react-icons/md'
 import { BiSolidUserCircle } from 'react-icons/bi'
 import { GrAnnounce } from 'react-icons/gr'
-import { FcBookmark, FcClock, FcFeedIn, FcVideoCall } from 'react-icons/fc'
+import { FcBookmark, FcClock, FcComments, FcFeedIn, FcVideoCall } from 'react-icons/fc'
 import { AiFillFlag, AiFillMessage } from 'react-icons/ai'
 import { SiLighthouse } from 'react-icons/si'
 
@@ -40,6 +40,11 @@ export const categories = [
     label: 'Saved',
     icon: FcBookmark,
     description: 'This property is in the countryside!',
+  },
+  {
+    label: 'Messenger',
+    icon: FcComments,
+    description: 'This property offers camping activities!',
   },
   {
     label: 'Feeds',
@@ -70,11 +75,6 @@ export const categories = [
     label: 'Events',
     icon: BsCalendar2EventFill,
     description: 'This property is in a spooky cave!',
-  },
-  {
-    label: 'Messenger',
-    icon: BsMessenger,
-    description: 'This property offers camping activities!',
   },
   {
     label: 'Groups',

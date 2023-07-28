@@ -37,7 +37,11 @@ const SinglePost = ({img, authorName, email, status,uploadedtime, likes, comment
            <div>
           <div className='flex items-center justify-between px-4 font-semibold'>
           <p className='flex items-center gap-2  py-2'><AiFillLike className='text-[#1877F2] text-2xl'/>likes {likes}</p>
-           <p>comments {comments?.length}</p>
+
+           {/* <p className=''>comments {comments?.length}</p> */}
+           {/* Open the modal using ID.showModal() method */}
+<button className='hover:underline' onClick={()=>window.my_modal_2.showModal()}>comments {comments?.length}</button>
+
           </div>
            <hr />
            <div className='flex items-center justify-around text-3xl pt-3'>
@@ -46,6 +50,7 @@ const SinglePost = ({img, authorName, email, status,uploadedtime, likes, comment
                 <button><FaShare /></button>
             </div>
            </div>
+           
         </div>
     );
 };
