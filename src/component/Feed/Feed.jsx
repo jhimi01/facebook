@@ -8,7 +8,7 @@ import { BsFillEmojiHeartEyesFill } from 'react-icons/bs';
 const Feed = () => {
     return (
         <div className='w-[40%] mx-auto'>
-            <div style={{ 'box-shadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 rounded-xl bg-base-100">
+            <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 rounded-xl bg-base-100">
               <div className="flex items-center gap-3 p-1">
                 <img className='rounded-full w-10' src={userpng} />
                 <div className="flex items-center relative w-full">

@@ -1,5 +1,4 @@
-{
-    "facebookHomePageItems": [
+[
       {
         "icon": "home-icon.png",
         "name": "Home"
@@ -21,5 +20,5 @@
         "name": "Marketplace"
       }
     ]
-  }
+
   
