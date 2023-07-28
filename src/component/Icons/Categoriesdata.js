@@ -16,7 +16,7 @@ import { IoDiamond } from 'react-icons/io5'
 import { MdGroups, MdOutlineVilla } from 'react-icons/md'
 import { BiSolidUserCircle } from 'react-icons/bi'
 import { GrAnnounce } from 'react-icons/gr'
-import { FcBookmark, FcClock, FcComments, FcFeedIn, FcVideoCall } from 'react-icons/fc'
+import { FcBookmark, FcClock, FcCloseUpMode, FcComments, FcFeedIn, FcVideoCall } from 'react-icons/fc'
 import { AiFillFlag, AiFillMessage } from 'react-icons/ai'
 import { SiLighthouse } from 'react-icons/si'
 
@@ -68,7 +68,7 @@ export const categories = [
   },
   {
     label: 'Climate Science Center',
-    icon: FaSeedling,
+    icon: FcCloseUpMode,
     description: 'This property is an ancient castle!',
   },
   {

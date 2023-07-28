@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -23,8 +24,8 @@ const Login = () => {
         <h4 className='text-[#1877F2] text-center capitalize'>forget password</h4>
        </div>
        <div className="divider"></div>
-       <div className="form-control">
-          <button className="w-3/4 py-3 rounded-md mx-auto bg-[#42b72a] capitalize text-lg font-semibold text-white">create new account</button>
+       <div className="form-control text-center">
+          <Link to='/signup'><button className="w-3/4 py-3 rounded-md mx-auto bg-[#42b72a] capitalize text-lg font-semibold text-white">create new account</button></Link>
         </div>
       </div>
     </div>
