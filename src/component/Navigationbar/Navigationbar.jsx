@@ -44,7 +44,7 @@ const Navigationbar = () => {
         </p>
         <p className="relative mx-4 hover:bg-base-200 rounded-xl">
           <NavLink
-            to="/user"
+            to="/user/users"
             title="users"
             className={({ isActive }) =>
               isActive ? "text-[#1877F2] underline-cus" : "text-[gray]"

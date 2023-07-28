@@ -51,7 +51,7 @@ const onSubmit = async data => {
               axios.post('http://localhost:5000/users', users )
               .then((res)=>{
                   console.log('post', res.data)
-                  navigate('/user')
+                  navigate(from, { replace: true });
               }) .catch((error) => {
                   console.error('Post request failed:', error);
                   // Handle error if the post request fails
@@ -63,7 +63,7 @@ const onSubmit = async data => {
                 showConfirmButton: false,
                 timer: 1500
               })
-              navigate(from, { replace: true });
+              
             }).catch(err => {
               console.log(err.message);
               Swal.fire({
