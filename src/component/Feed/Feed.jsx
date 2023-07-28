@@ -6,15 +6,19 @@ import { RiLiveFill } from 'react-icons/ri';
 import { BsFillEmojiHeartEyesFill } from 'react-icons/bs';
 import usePsots from '../../hooks/usePsots';
 import SinglePost from '../SinglePost/SinglePost';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Feed = () => {
 
-  const { posts } = usePsots()
+  const { posts, isLoading } = usePsots()
   console.log(posts)
+
+  
 
     return (
         <div className='w-[40%] mx-auto'>
-            <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 rounded-xl bg-base-100">
+            <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 bg-base-100 rounded-xl ">
               <div className="flex items-center gap-3 p-1">
                 <img className='rounded-full w-10' src={userpng} />
                 <div className="flex items-center  w-full">
@@ -40,7 +44,29 @@ const Feed = () => {
 
 
               {/* allposts */}
-              <div>
+              <SkeletonTheme baseColor="#c7c7c7" height="200" highlightColor="#f0f8ff7e" >
+             {isLoading ? (
+          <div className="grid grid-cols-1">
+            <div className="col-span-1 rounded-2xl shadow-lg mt-5">
+              <Skeleton height={300} />
+            </div>
+            <div className="col-span-1 rounded-2xl shadow-lg mt-5 ">
+              <Skeleton height={300} />
+            </div>
+            <div className="col-span-1 rounded-2xl shadow-lg mt-5">
+              <Skeleton height={300} />
+            </div>
+            <div className="col-span-1 rounded-2xl shadow-lg mt-5">
+              <Skeleton height={300} />
+            </div>
+            <div className="col-span-1 rounded-2xl shadow-lg mt-5">
+              <Skeleton height={300} />
+            </div>
+            <div className="col-span-1 rounded-2xl shadow-lg mt-5">
+              <Skeleton height={300} />
+            </div>
+          </div>
+        )  :  <div>
         {posts.map(post => (
           <SinglePost
             key={post?.authorName}
@@ -54,7 +80,8 @@ const Feed = () => {
             share={post?.share}
           />
         ))}
-      </div>
+      </div>}
+      </SkeletonTheme>
       
         </div>
     );
