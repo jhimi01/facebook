@@ -162,7 +162,7 @@ const Navigationbar = () => {
               <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 rounded-xl">
               <div className="rounded-full flex items-center gap-3 p-1">
               {user?  <img className="w-10 h-10 object-cover rounded-full" src={user?.photoURL} /> :  <img className="w-10 h-10 object-cover rounded-full" src={userpng} />}
-                <h3 className="text-xl font-semibold">Jhimi</h3>
+                <h3 className="text-xl font-semibold">{user?.displayName}</h3>
               </div>
               <hr  className="my-3"/>
                 <p className="text-xl font-semibold text-[#1877F2]">see all profiles</p>

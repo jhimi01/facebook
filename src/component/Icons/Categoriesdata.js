@@ -21,11 +21,7 @@ import { AiFillFlag, AiFillMessage } from 'react-icons/ai'
 import { SiLighthouse } from 'react-icons/si'
 
 export const categories = [
-  {
-    label: 'jhimi',
-    icon: BiSolidUserCircle,
-    description: 'This property is close to the beach!',
-  },
+ 
   {
     label: 'Firends',
     icon: FaUserFriends,
@@ -95,5 +91,10 @@ export const categories = [
     label: 'Pages',
     icon: AiFillFlag,
     description: 'This property is brand new and luxurious!',
-  },
+  }, 
+  {
+    label: 'jhimi',
+    icon: BiSolidUserCircle,
+    description: 'This property is close to the beach!',
+  }
 ]
