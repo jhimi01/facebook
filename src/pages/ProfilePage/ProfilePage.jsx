@@ -19,7 +19,7 @@ const ProfilePage = () => {
                 <h1 className='absolute top-64 text-6xl'>{user?.displayName}</h1>
             </div>
 
-         <div className=' w-2/3 mx-auto mt-40'>
+       {myposts.length !== 0 ?  <div className=' w-2/3 mx-auto mt-40'>
             {myposts.map(profile =>  <SinglePost
             key={profile._id}
             authorImage={profile?.authorImage}
@@ -32,7 +32,7 @@ const ProfilePage = () => {
             comments={profile?.comments}
             share={profile?.share}
           />)}
-            </div>
+            </div> :  <h1 className='text-6xl capitalize text-center mt-40 text-gray-400'>You don't Have any post yet</h1>}
        </div>
     );
 };
