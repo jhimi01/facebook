@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             <ProfilePage></ProfilePage>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(params.email),
+        loader: ({ params }) => fetch(`https://facebook-server-phi.vercel.app/myposts?email=${params.email}`),
       },
       { path: "/play", element: <p>play</p> },
       { path: "/login", element: <Login></Login> },

@@ -7,7 +7,7 @@ const useMyPost = () => {
     const {isLoading, data:myposts = [], refetch} = useQuery({
         queryKey: ['myposts', user?.email],
         queryFn: async () => {
-          const response = await fetch(`https://facebook-server-phi.vercel.app/myposts?email=${user?.email}`)
+          const response = await fetch(`http://localhost:5000/myposts?email=${user?.email}`)
           if (!response.ok) {
             throw new Error('Network response was not ok')
           }

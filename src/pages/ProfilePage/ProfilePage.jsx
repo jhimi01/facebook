@@ -1,21 +1,23 @@
 import React from 'react';
 import useMyPost from '../../hooks/useMyPost';
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import SinglePost from '../../component/SinglePost/SinglePost';
 
 const ProfilePage = () => {
-    const { email, loading } = useParams();
-    console.log(email)
-    const{myposts, isLoading}=useMyPost()
-    console.log(myposts)
-    if (isLoading) {
-        return <div>..loading</div>
-    }
-    if (loading) {
+    // const { email } = useParams();
+    // console.log(email)
+    // const{myposts, isLoading}=useMyPost()
+    // console.log(myposts)
+    const myposts = useLoaderData()
+    console.log(data)
+    // if (isLoading) {
+    //     return <div>..loading</div>
+    // }
+    // if (loading) {
        
-        return <div> </div>
-      }
+    //     return <div> </div>
+    //   }
       
     return (
        <>
