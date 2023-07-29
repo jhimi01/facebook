@@ -75,6 +75,7 @@ const Feed = () => {
         {posts.map(post => (
           <SinglePost
             key={post?.authorName}
+            // authorImage={authorImage}
             img={post?.img}
             authorName={post?.authorName}
             email={post?.email}

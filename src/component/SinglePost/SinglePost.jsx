@@ -3,7 +3,7 @@ import userpng from "../../../public/user.png";
 import { AiFillCloseCircle, AiFillLike, AiOutlineComment, AiOutlineLike } from 'react-icons/ai';
 import { PiShareFatLight } from 'react-icons/pi';
 
-const SinglePost = ({img, authorName, email, status,uploadedtime, likes, comments, share}) => {
+const SinglePost = ({authorImage,img, authorName, email, status,uploadedtime, likes, comments, share}) => {
 
   const [opneModal, setOpenModal] = useState(false)
 
