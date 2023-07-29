@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import userpng from "../../../public/user.png";
 import { BiSearch } from 'react-icons/bi';
 import { IoMdPhotos } from 'react-icons/io';
@@ -9,9 +9,12 @@ import SinglePost from '../SinglePost/SinglePost';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import { AuthContext } from '../../Provider/AuthProvider';
+import PostModal from '../PostModal/PostModal';
+import './Feed.css'
 
 const Feed = () => {
 
+  const [openPostModal, setOpenPostModal] = useState(false)
   const { posts, isLoading } = usePsots()
   const {user} = useContext(AuthContext)
 
@@ -19,7 +22,7 @@ const Feed = () => {
 
     return (
         <div className='w-[40%] mx-auto'>
-            <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 bg-base-100 rounded-xl ">
+            <div onClick={()=>setOpenPostModal(true)} style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className="p-4 bg-base-100 rounded-xl ">
               <div className="flex items-center gap-3 p-1">
               {user ?  <img className="w-10 h-10 object-cover rounded-full" src={user?.photoURL} /> :  <img className="w-10 h-10 object-cover rounded-full" src={userpng} />}
                 <div className="flex items-center  w-full">
@@ -27,7 +30,7 @@ const Feed = () => {
               type="text"
               name="text"
               className="py-2 md:px-4 px-1 bg-base-200 rounded-full w-full"
-              placeholder="What's on your mind, jhimi?"
+              placeholder={`What's on your mind, ${user?.displayName.split(' ')[0]}?`}
             />
            
           </div>
@@ -42,7 +45,8 @@ const Feed = () => {
             <button className='flex items-center gap-2 text-xl p-2 hover:bg-base-200 rounded-lg'><BsFillEmojiHeartEyesFill className='text-[#f7b928]'/> Feeling/activity</button>
           </div>
               </div>
-
+              {openPostModal && <div className="overlayCustom" />}
+{openPostModal && <PostModal setOpenPostModal={setOpenPostModal}></PostModal>}
 
               {/* allposts */}
               <SkeletonTheme baseColor="#c7c7c7" height="200" highlightColor="#f0f8ff7e" >

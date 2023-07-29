@@ -51,7 +51,7 @@ const Login = () => {
               </div>
               <div className="form-control">
           <button type='submit' className="btn btn-secondary">Login</button>
-      {/* <input type="submit" /> */}
+          {error && <span className='text-red-500'>{error}</span>}
       <div>
         <h4 className='text-[#1877F2] text-center capitalize'>forget password</h4>
        </div>
