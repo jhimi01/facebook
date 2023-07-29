@@ -51,18 +51,19 @@ const onSubmit = async data => {
               axios.post('http://localhost:5000/users', users )
               .then((res)=>{
                   console.log('post', res.data)
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
                   navigate(from, { replace: true });
               }) .catch((error) => {
                   console.error('Post request failed:', error);
                   // Handle error if the post request fails
                 });
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-              })
+              
               
             }).catch(err => {
               console.log(err.message);

@@ -3,6 +3,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { IoClose } from 'react-icons/io5';
 import { FcGallery } from 'react-icons/fc';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const PostModal = ({setOpenPostModal}) => {
     const { user } = useContext(AuthContext);
@@ -55,9 +56,22 @@ const handleSubmit = async (e) => {
         comments:[]
 
       }
-      console.log(postData)
-      setOpenPostModal(false);
-
+      axios.post('http://localhost:5000/posts', postData )
+              .then((res)=>{
+                  console.log('post', res.data)
+                  setOpenPostModal(false);
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  navigate(from, { replace: true });
+              }) .catch((error) => {
+                  console.error('Post request failed:', error);
+                  // Handle error if the post request fails
+                });
       setLoading(false);
     } catch (error) {
       setLoading(false);
