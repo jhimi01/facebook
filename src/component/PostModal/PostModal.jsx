@@ -4,9 +4,11 @@ import { IoClose } from 'react-icons/io5';
 import { FcGallery } from 'react-icons/fc';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import usePsots from '../../hooks/usePsots';
 
 const PostModal = ({setOpenPostModal}) => {
     const { user } = useContext(AuthContext);
+    const {refetch} = usePsots()
   const fileInputRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
@@ -63,11 +65,11 @@ const handleSubmit = async (e) => {
                   Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: 'uploaded',
                     showConfirmButton: false,
                     timer: 1500
                   })
-                  navigate(from, { replace: true });
+                  refetch()
               }) .catch((error) => {
                   console.error('Post request failed:', error);
                   // Handle error if the post request fails

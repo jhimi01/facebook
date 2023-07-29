@@ -15,7 +15,8 @@ import './Feed.css'
 const Feed = () => {
 
   const [openPostModal, setOpenPostModal] = useState(false)
-  const { posts, isLoading } = usePsots()
+  const { posts, isLoading, refetch } = usePsots()
+  console.log(posts)
   const {user} = useContext(AuthContext)
 
   
@@ -75,7 +76,7 @@ const Feed = () => {
         {posts.map(post => (
           <SinglePost
             key={post?.authorName}
-            // authorImage={authorImage}
+            authorImage={post?.authorImage}
             img={post?.img}
             authorName={post?.authorName}
             email={post?.email}
