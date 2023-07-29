@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useMyPost from '../../hooks/useMyPost';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import SinglePost from '../../component/SinglePost/SinglePost';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const ProfilePage = () => {
-    // const { email } = useParams();
-    // console.log(email)
-    // const{myposts, isLoading}=useMyPost()
-    // console.log(myposts)
     const myposts = useLoaderData()
-
-   
+    const { user } = useContext(AuthContext)
       
     return (
-       <>
+       <div>
         <Helmet>
                 <title>Profile | facebook</title>
             </Helmet>
-         <div className='w-1/2 mx-auto '>
+            <div className='bg-[#f7e9e9] h-[180px] relative flex items-center justify-center'>
+                <img className='w-40 h-40 border-4 border-rose-300 rounded-full object-cover absolute top-20' src={user?.photoURL} alt="" />
+                <h1 className='absolute top-64 text-6xl'>{user?.displayName}</h1>
+            </div>
+
+         <div className=' w-2/3 mx-auto mt-40'>
             {myposts.map(profile =>  <SinglePost
             key={profile._id}
             authorImage={profile?.authorImage}
@@ -32,7 +33,7 @@ const ProfilePage = () => {
             share={profile?.share}
           />)}
             </div>
-       </>
+       </div>
     );
 };
 
