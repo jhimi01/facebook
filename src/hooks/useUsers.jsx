@@ -5,7 +5,7 @@ const useUsers = () => {
         queryKey: ['users'],
         // queryKey: ['posts', user?.email],
         queryFn: async () => {
-          const response = await fetch('http://localhost:5000/users')
+          const response = await fetch('https://facebook-server-phi.vercel.app/users')
           if (!response.ok) {
             throw new Error('Network response was not ok')
           }

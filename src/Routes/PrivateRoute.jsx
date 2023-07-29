@@ -4,10 +4,10 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const PrivateRoute = ({children}) => {
-    const { user, loader} = useContext(AuthContext)
+    const { user, loading} = useContext(AuthContext)
     let location = useLocation();
 
-    if (loader) {
+    if (loading) {
        
       return <div>loading...</div>
     }
@@ -19,7 +19,8 @@ const PrivateRoute = ({children}) => {
     return <>
         <Navigate to="/login" state={{ from: location }} replace />
     </>
-
+// email: rinty@gmail.com
+// pass: 123456
 };
 
 

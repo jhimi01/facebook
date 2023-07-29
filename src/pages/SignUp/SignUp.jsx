@@ -48,7 +48,7 @@ const onSubmit = async data => {
                 img :imageUrl,
                 email,
               }
-              axios.post('http://localhost:5000/users', users )
+              axios.post('https://facebook-server-phi.vercel.app/users', users )
               .then((res)=>{
                   console.log('post', res.data)
                   Swal.fire({

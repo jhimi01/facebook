@@ -4,7 +4,8 @@ import './Icon.css'
 
 const Icons = () => {
   return (
-    <div className="w-[20%] overflow-auto h-[100vh] cart sticky top-0">
+    // <div className="flex overflow-x-auto cart text-sm h-full mb-1">
+    <div className="md:w-[20%] overflow-auto h-[100vh] cart md:sticky md:top-0"> 
       {categories.map((item) => (
         <CategoryBox
           key={item.label}

@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 const Home = () => {
     return (
 
-        <div className='flex pt-5 gap-10'>
+        <div className='md:flex pt-5 gap-10'>
          <Helmet>
                 <title>Facebook</title>
             </Helmet>

@@ -20,6 +20,7 @@ import {
 } from '@tanstack/react-query'
 import AuthProvider from './Provider/AuthProvider.jsx';
 import AllUsers from './pages/Users/AllUsers.jsx';
+import PrivateRoute from './Routes/PrivateRoute';
 
 // Create a client
 const queryClient = new QueryClient()
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainLayout></MainLayout>,
     children: [
-      {path: '/' , element: <Home></Home>},
+      {path: '/' , element: <PrivateRoute><Home></Home></PrivateRoute>},
       {path: '/user/users' , element: <Users></Users>,
     children:[
       {path:'/user/users', element: <AllUsers></AllUsers>}

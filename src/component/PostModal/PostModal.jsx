@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
         comments:[]
 
       }
-      axios.post('http://localhost:5000/posts', postData )
+      axios.post('https://facebook-server-phi.vercel.app/posts', postData )
               .then((res)=>{
                   console.log('post', res.data)
                   setOpenPostModal(false);

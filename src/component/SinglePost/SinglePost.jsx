@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiFillCloseCircle, AiFillLike, AiOutlineComment, AiOutlineLike } from 'react-icons/ai';
 import { PiShareFatLight } from 'react-icons/pi';
+import { AuthContext } from '../../Provider/AuthProvider';
+// import { IoClose } from 'react-icons/io5';
+import { GrClose } from 'react-icons/gr';
 
 const SinglePost = ({authorImage,img, authorName, email, status,uploadedtime, likes, comments, share}) => {
 console.log(authorImage)
   const [opneModal, setOpenModal] = useState(false)
+  const {user}=useContext(AuthContext)
 
     return (
         <div style={{ 'boxShadow': '0 3px 10px rgb(0 0 0 / 0.2)'}} className='bg-base-100 rounded-xl my-5 py-4'>
@@ -16,13 +20,14 @@ console.log(authorImage)
                    <p className='text-xs text-gray-500'>{uploadedtime}</p>
                    </div>
                 </div>
-<div className="dropdown">
+                {email === user?.email ? <div className="dropdown">
   <label tabIndex={0} className="cursor-pointer p-3 bg-none text-2xl text-gray-600 font-bold">...</label>
   <ul tabIndex={0} className="dropdown-content z-[1] font-semibold menu p-2 shadow bg-base-100 rounded-box w-32">
   <li><a>Edite</a></li>
     <li><a>Delete Post</a></li>
   </ul>
-</div>
+</div> : <button className=' p-2 text-xl'><GrClose /></button>}
+
             </div>
             {/* img section */}
             <div className='py-3'>
