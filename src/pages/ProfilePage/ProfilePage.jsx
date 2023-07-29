@@ -10,14 +10,8 @@ const ProfilePage = () => {
     // const{myposts, isLoading}=useMyPost()
     // console.log(myposts)
     const myposts = useLoaderData()
-    console.log(data)
-    // if (isLoading) {
-    //     return <div>..loading</div>
-    // }
-    // if (loading) {
-       
-    //     return <div> </div>
-    //   }
+
+   
       
     return (
        <>
