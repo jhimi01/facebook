@@ -21,6 +21,7 @@ import {
 import AuthProvider from './Provider/AuthProvider.jsx';
 import AllUsers from './pages/Users/AllUsers.jsx';
 import PrivateRoute from './Routes/PrivateRoute';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 // Create a client
 const queryClient = new QueryClient()
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       {path:'/user/users', element: <AllUsers></AllUsers>}
     ]},
       {path: '/media' , element: <p>media</p>},
+      {path: '/profilepage/:email' , element: <ProfilePage></ProfilePage>,loader: ({ params }) => fetch(params.email),},
       {path: '/play' , element: <p>play</p>},
       {path:'/login' , element: <Login></Login>},
       {path:'/signup' , element: <SignUp></SignUp>},
