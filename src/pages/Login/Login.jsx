@@ -37,7 +37,7 @@ const Login = () => {
     <div className="text-center lg:text-left space-y-3">
     <h1 className='text-6xl font-bold text-[#1877F2]'>facebook</h1>
           <h3 className='text-3xl'>Facebook helps you connect and share with the people in your life.</h3>
-          <p className='opacity-40'>test-email : rinty@gmail------ test-pass : 123456</p>
+          <p className='opacity-40'>test-email : rinty@gmail.com ------ test-pass : 123456</p>
     </div>
     <form onSubmit={handleSubmit(onSubmit)} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       {/* register your input into the hook by invoking the "register" function */}
