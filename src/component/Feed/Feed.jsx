@@ -73,9 +73,9 @@ const Feed = () => {
             </div>
           </div>
         )  :  <div>
-        {posts.map(post => (
+        {posts.map((post, index) => (
           <SinglePost
-            key={post?.authorName}
+            key={index}
             authorImage={post?.authorImage}
             img={post?.img}
             authorName={post?.authorName}
