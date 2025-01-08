@@ -102,6 +102,7 @@ const Feed = () => {
             {posts.map((post, index) => (
               <SinglePost
                 key={index}
+                postId={post?._id}
                 authorImage={post?.authorImage}
                 img={post?.img}
                 authorName={post?.authorName}

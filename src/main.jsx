@@ -26,13 +26,15 @@ const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PrivateRoute><MainLayout></MainLayout></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <MainLayout></MainLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/",
-        element: (
-            <Home></Home>
-        ),
+        element: <Home></Home>,
       },
       {
         path: "/user/users",
@@ -47,15 +49,18 @@ const router = createBrowserRouter([
             <ProfilePage></ProfilePage>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`https://facebook-server-phi.vercel.app/myposts?email=${params.email}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://facebook-server-phi.vercel.app/myposts?email=${params.email}`
+          ),
       },
       { path: "/play", element: <p>play</p> },
-      
+
       { path: "*", element: <ErrorPage></ErrorPage> },
     ],
   },
   { path: "/login", element: <Login></Login> },
-      { path: "/signup", element: <SignUp></SignUp> },
+  { path: "/signup", element: <SignUp></SignUp> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import useMyPost from "../../hooks/useMyPost";
+import React, { useContext, useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import SinglePost from "../../component/SinglePost/SinglePost";
@@ -8,6 +7,24 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const ProfilePage = () => {
   const myposts = useLoaderData();
   const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/myposts/677e7c6e0439b49393bb32c9`
+        );
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log(data); // Handle post data
+      } catch (error) {
+        console.error("Error fetching post:", error);
+      }
+    };
+    fetchPost();
+  }, []);
 
   return (
     <div>
@@ -28,10 +45,11 @@ const ProfilePage = () => {
           {myposts.map((profile) => (
             <SinglePost
               key={profile._id}
+              postId={profile._id}
               authorImage={profile?.authorImage}
               img={profile?.img}
               authorName={profile?.authorName}
-              email={profile?.email}
+              email={user?.email}
               status={profile?.status}
               uploadedtime={profile?.uploadedtime}
               likes={profile?.likes}

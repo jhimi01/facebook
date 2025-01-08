@@ -21,6 +21,8 @@ const SignUp = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
+  console.log("keyyy", import.meta.env.VITE_IMGBB_API_KEY)
+
   const onSubmit = async (data) => {
     const { name, email, password, image } = data;
     console.log(data);
@@ -30,7 +32,7 @@ const SignUp = () => {
     formData.append("image", image[0]);
     // make a post request to Imgbb api
     const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.IMGBB_API_KEY
+      import.meta.env.VITE_IMGBB_API_KEY
     }`;
     try {
       const response = await fetch(url, {

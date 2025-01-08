@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   AiFillCloseCircle,
   AiFillLike,
@@ -7,10 +7,10 @@ import {
 } from "react-icons/ai";
 import { PiShareFatLight } from "react-icons/pi";
 import { AuthContext } from "../../Provider/AuthProvider";
-// import { IoClose } from 'react-icons/io5';
 import { GrClose } from "react-icons/gr";
 
 const SinglePost = ({
+  postId,
   authorImage,
   img,
   authorName,
@@ -21,9 +21,36 @@ const SinglePost = ({
   comments,
   share,
 }) => {
-  console.log(authorImage);
   const [opneModal, setOpenModal] = useState(false);
   const { user } = useContext(AuthContext);
+
+  // Assuming 'postId' is passed as a prop to your SinglePost component
+  const handleDeletePost = async () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this post?"
+    );
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(`http://localhost:5000/myposts/${postId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert("Post deleted successfully.");
+        onPostDeleted(postId); // Notify parent component to remove the post
+      } else {
+        alert("Failed to delete the post. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert("An error occurred while deleting the post.");
+    }
+  };
 
   return (
     <div
@@ -58,7 +85,7 @@ const SinglePost = ({
                 <a>Edite</a>
               </li>
               <li>
-                <a>Delete Post</a>
+                <button onClick={handleDeletePost}>Delete Post</button>
               </li>
             </ul>
           </div>

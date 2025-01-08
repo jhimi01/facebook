@@ -35,7 +35,7 @@ const PostModal = ({ setOpenPostModal }) => {
       const formData = new FormData();
       formData.append("image", fileInputRef.current.files[0]);
       const url = `https://api.imgbb.com/1/upload?key=${
-        import.meta.env.IMGBB_API_KEY
+        import.meta.env.VITE_IMGBB_API_KEY
       }`;
       const response = await fetch(url, {
         method: "POST",
@@ -114,7 +114,7 @@ const PostModal = ({ setOpenPostModal }) => {
           className="textarea text-2xl resize-none outline-none focus:outline-0 w-full "
           placeholder={`What's on your mind, ${
             user?.displayName.split(" ")[0]
-          } ?`}
+          } ?`} required
         ></textarea>
       </div>
       <input
