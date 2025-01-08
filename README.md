@@ -1,3 +1,3 @@
-#live-site: https://facebook-green-nine.vercel.app/
+#live-site: https://facebook-green-nine.vercel.app
 
 <!-- git push origin main -->
