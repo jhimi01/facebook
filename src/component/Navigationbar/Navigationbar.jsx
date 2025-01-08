@@ -225,7 +225,7 @@ const Navigationbar = () => {
         </div>
       </div>
       {/* mobile icon */}
-      <div className="md:hidden bg-base-100 z-10 shadow-2xl rounded-none fixed bottom-0 w-full py-1">
+      <div className="md:hidden shadow-cus bg-base-100 z-10 shadow-2xl rounded-none fixed bottom-0 w-full py-1">
         <div
           // style={{zIndex: 5000}}
           className="flex justify-between text-xl"

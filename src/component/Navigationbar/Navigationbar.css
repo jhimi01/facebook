@@ -1,27 +1,22 @@
-/* Navigationbar.css */
+.underline-cus::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #1877f2;
+  bottom: -4px;
+  left: 0;
+}
 
+.underline-cus::after {
+  transition: width 0.3s ease; /* Add a smooth transition effect */
+}
 
-  .underline-cus::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #1877F2; /* The color of the underline */
-    bottom: -4px;
-    left: 0;
-  }
- 
-  
-  /* Add a transition effect to the underline when the NavLink elements are active */
-  .underline-cus::after {
-    transition: width 0.3s ease; /* Add a smooth transition effect */
-  }
-  
-  /* Optional: You can also add a hover effect for better user feedback */
-  .underline-cus:hover::after {
-    width: 100%; /* Expand the underline to full width on hover */
-  }
+/* Optional: You can also add a hover effect for better user feedback */
+.underline-cus:hover::after {
+  width: 100%;
+}
 
-  .shadow-cus{
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.87); /* Customize the shadow as needed */
-  }
+.shadow-cus {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.87); /* Customize the shadow as needed */
+}
