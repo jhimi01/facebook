@@ -35,7 +35,7 @@ const PostModal = ({ setOpenPostModal }) => {
       const formData = new FormData();
       formData.append("image", fileInputRef.current.files[0]);
       const url = `https://api.imgbb.com/1/upload?key=${
-        import.meta.env.VITE_IMGBB_API_KEY
+        import.meta.env.IMGBB_API_KEY
       }`;
       const response = await fetch(url, {
         method: "POST",

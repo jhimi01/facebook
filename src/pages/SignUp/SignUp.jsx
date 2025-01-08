@@ -30,7 +30,7 @@ const SignUp = () => {
     formData.append("image", image[0]);
     // make a post request to Imgbb api
     const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_API_KEY
+      import.meta.env.IMGBB_API_KEY
     }`;
     try {
       const response = await fetch(url, {
