@@ -43,7 +43,7 @@ const Login = () => {
           <h3 className="text-3xl">
             Facebook helps you connect and share with the people in your life.
           </h3>
-          <p className="opacity-40">
+          <p className="text-white">
             test-email : rinty@gmail.com ------ test-pass : 123456
           </p>
         </div>

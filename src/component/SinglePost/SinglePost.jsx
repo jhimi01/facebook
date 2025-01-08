@@ -11,6 +11,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { GrClose } from "react-icons/gr";
 import useMyPost from "../../hooks/useMyPost";
 import Swal from "sweetalert2";
+import usePsots from "../../hooks/usePsots";
 
 const SinglePost = ({
   postId,
@@ -22,11 +23,11 @@ const SinglePost = ({
   uploadedtime,
   likes,
   comments,
-  share,
 }) => {
   const [opneModal, setOpenModal] = useState(false);
   const { user } = useContext(AuthContext);
-  const { refetch } = useMyPost();
+  // const { refetch } = useMyPost();
+  const { refetch } = usePsots();
 
   // Assuming 'postId' is passed as a prop to your SinglePost component
   const handleDeletePost = async () => {
@@ -37,7 +38,9 @@ const SinglePost = ({
 
     try {
       axios
-        .delete(`https://facebook-server-phi.vercel.app/myposts/${postId}?email=${user?.email}`)
+        .delete(
+          `https://facebook-server-phi.vercel.app/myposts/${postId}?email=${user?.email}`
+        )
         .then((res) => {
           console.log("Delete", res.data);
           Swal.fire({
