@@ -6,7 +6,7 @@ const MainLayout = () => {
     return (
         <>
          <Navigationbar />
-         <div className='bg-[#f0f2f5] h-[100%]'>
+         <div className='bg-[#f0f2f5] h-[100%] md:px-0 px-1'>
          <Outlet></Outlet>   
          </div>
         </>

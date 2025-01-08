@@ -8,7 +8,7 @@ const Friends = () => {
 
     return (
         // <div className="flex overflow-x-auto cart text-sm h-full mb-1">
-         <div className='md:w-[20%] opacity-50 sticky top-10 h-full'> 
+         <div className='md:w-[20%] hidden lg:block opacity-50 sticky top-10 h-full'> 
            <h1 className='text-xl text-gray-400 font-semibold'>Suggested Friends</h1>
            <div>
            {/* <div className="flex overflow-x-auto cart text-sm h-full mb-1"> */}
