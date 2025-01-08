@@ -65,7 +65,7 @@ const PostModal = ({ setOpenPostModal }) => {
             icon: "success",
             title: "uploaded",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 1000,
           });
           refetch();
         })

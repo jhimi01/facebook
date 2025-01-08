@@ -12,7 +12,7 @@ const ProfilePage = () => {
     const fetchPost = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/myposts/677e7c6e0439b49393bb32c9`
+          `https://facebook-server-phi.vercel.app/myposts/677e7c6e0439b49393bb32c9?email=${user?.email}`
         );
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);

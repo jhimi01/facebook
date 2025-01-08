@@ -5,9 +5,12 @@ import {
   AiOutlineComment,
   AiOutlineLike,
 } from "react-icons/ai";
+import axios from "axios";
 import { PiShareFatLight } from "react-icons/pi";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { GrClose } from "react-icons/gr";
+import useMyPost from "../../hooks/useMyPost";
+import Swal from "sweetalert2";
 
 const SinglePost = ({
   postId,
@@ -23,6 +26,7 @@ const SinglePost = ({
 }) => {
   const [opneModal, setOpenModal] = useState(false);
   const { user } = useContext(AuthContext);
+  const { refetch } = useMyPost();
 
   // Assuming 'postId' is passed as a prop to your SinglePost component
   const handleDeletePost = async () => {
@@ -32,20 +36,23 @@ const SinglePost = ({
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/myposts/${postId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        alert("Post deleted successfully.");
-        onPostDeleted(postId); // Notify parent component to remove the post
-      } else {
-        alert("Failed to delete the post. Please try again.");
-      }
+      axios
+        .delete(`https://facebook-server-phi.vercel.app/myposts/${postId}?email=${user?.email}`)
+        .then((res) => {
+          console.log("Delete", res.data);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Deleted Post",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          refetch();
+        })
+        .catch((error) => {
+          console.error("Delete request failed:", error);
+          // Handle error if the post request fails
+        });
     } catch (error) {
       console.error("Error deleting post:", error);
       alert("An error occurred while deleting the post.");
