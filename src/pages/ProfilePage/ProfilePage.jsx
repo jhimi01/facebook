@@ -7,6 +7,9 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const ProfilePage = () => {
   const myposts = useLoaderData();
   const { user } = useContext(AuthContext);
+  useEffect(()=>{
+    window.scroll(0, 0)
+  },[])
 
   useEffect(() => {
     const fetchPost = async () => {

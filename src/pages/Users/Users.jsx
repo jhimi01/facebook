@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, Outlet } from "react-router-dom";
 import { TiThListOutline } from "react-icons/ti";
@@ -7,6 +7,10 @@ import { FiUserPlus } from "react-icons/fi";
 import { BiSolidUserPlus } from "react-icons/bi";
 
 const Users = () => {
+  useEffect(()=>{
+    window.scroll(0, 0)
+  },[])
+
   return (
     <div>
       <Helmet>
