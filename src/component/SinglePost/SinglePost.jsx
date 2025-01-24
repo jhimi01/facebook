@@ -25,9 +25,13 @@ const SinglePost = ({
   comments,
 }) => {
   const [opneModal, setOpenModal] = useState(false);
+  const [liked, setLiked] = useState(false); // Track like state
+  // const [likeCount, setLikeCount] = useState(likes || 0);
   const { user } = useContext(AuthContext);
-  // const { refetch } = useMyPost();
+  
   const { refetch } = usePsots();
+
+  // console.log("like", likeCount)
 
   // Assuming 'postId' is passed as a prop to your SinglePost component
   const handleDeletePost = async () => {
@@ -42,7 +46,7 @@ const SinglePost = ({
           `https://facebook-server-phi.vercel.app/myposts/${postId}?email=${user?.email}`
         )
         .then((res) => {
-          console.log("Delete", res.data);
+          // console.log("Delete", res.data);
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -62,6 +66,59 @@ const SinglePost = ({
     }
   };
 
+  useEffect(() => {
+    if (Array.isArray(likes) && likes.some((like) => like.email === user?.email)) {
+      setLiked(true);
+    } else {
+      setLiked(false);
+    }
+  }, [likes, user]);
+
+  const handleLike = async () => {
+    if (!user) {
+      Swal.fire({
+        icon: "warning",
+        title: "Please login to like the post.",
+      });
+      return;
+    }
+
+    try {
+      const response = await axios.post(`https://facebook-server-phi.vercel.app/posts/like`, {
+        postId,
+        userEmail: user.email,
+      });
+
+      if (response.data.success) {
+        const { message } = response.data;
+
+        if (message === "added") {
+          setLiked(true);
+        } else if (message === "removed") {
+          setLiked(false);
+        }
+
+        refetch();
+      }
+    } catch (error) {
+      console.error("Error liking post:", error);
+    }
+  };
+
+  const formatUploadedTime = (time) => {
+    const date = new Date(time);
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    };
+    return date.toLocaleString("en-US", options);
+  };
+
   return (
     <div
       style={{ boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)" }}
@@ -76,7 +133,7 @@ const SinglePost = ({
           />
           <div>
             <h2 className="text-lg font-semibold">{authorName}</h2>
-            <p className="text-xs text-gray-500">{uploadedtime}</p>
+            <p className="text-xs text-gray-500">{formatUploadedTime(uploadedtime)}</p>
           </div>
         </div>
         {email === user?.email ? (
@@ -115,7 +172,7 @@ const SinglePost = ({
         <div className="flex items-center justify-between px-4 font-semibold">
           <p className="flex items-center gap-2  py-2">
             <AiFillLike className="text-[#1877F2] text-2xl" />
-            likes {likes}
+            likes {likes.length}
           </p>
 
           {/* Open the modal using ID.showModal() method */}
@@ -147,8 +204,16 @@ const SinglePost = ({
         </div>
         <hr />
         <div className="flex items-center justify-around pt-3">
-          <button className="text-xl flex items-center   gap-2">
-            <AiOutlineLike className="text-2xl" /> Like
+          <button
+            onClick={handleLike}
+            className="text-xl flex items-center   gap-2"
+          >
+           {liked ? (
+              <AiFillLike className="text-3xl text-blue-500" />
+            ) : (
+              <AiOutlineLike className="text-2xl" />
+            )}
+            Like
           </button>
           <button className="text-xl flex items-center   gap-2">
             <AiOutlineComment className="text-2xl" />

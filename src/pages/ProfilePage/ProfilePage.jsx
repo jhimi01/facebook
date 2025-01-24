@@ -11,6 +11,8 @@ const ProfilePage = () => {
     window.scroll(0, 0)
   },[])
 
+  console.log(myposts)
+
   useEffect(() => {
     const fetchPost = async () => {
       try {
