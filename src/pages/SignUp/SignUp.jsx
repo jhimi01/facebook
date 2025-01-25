@@ -20,10 +20,12 @@ const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
+  const [loading, setLoading] = useState(false);
 
-  console.log("keyyy", import.meta.env.VITE_IMGBB_API_KEY)
+  console.log("keyyy", import.meta.env.VITE_IMGBB_API_KEY);
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const { name, email, password, image } = data;
     console.log(data);
 
@@ -58,6 +60,7 @@ const SignUp = () => {
               axios
                 .post("https://facebook-server-phi.vercel.app/users", users)
                 .then((res) => {
+                  setLoading(false);
                   console.log("post", res.data);
                   Swal.fire({
                     position: "top-end",
@@ -74,6 +77,7 @@ const SignUp = () => {
                 });
             })
             .catch((err) => {
+              setLoading(false);
               console.log(err.message);
               Swal.fire({
                 icon: "error",
@@ -85,6 +89,7 @@ const SignUp = () => {
           reset();
         })
         .catch((err) => {
+          setLoading(false);
           setError(err.message);
           Swal.fire({
             icon: "error",
@@ -173,7 +178,11 @@ const SignUp = () => {
               )}
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#42b72a] text-white">
+              <button
+                disabled={loading}
+                className="btn bg-[#42b72a] text-white"
+              >
+                {loading ? "Creating..." : "Create account"}
                 Create account
               </button>
               {error && <span className="text-red-500 text-xs">{error}</span>}
