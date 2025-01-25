@@ -41,6 +41,7 @@ const Feed = () => {
             <input
               type="text"
               name="text"
+              value=""
               className="py-2 md:px-4 px-1 bg-base-200 rounded-full w-full"
               placeholder={`What's on your mind, ${
                 user?.displayName.split(" ")[0]

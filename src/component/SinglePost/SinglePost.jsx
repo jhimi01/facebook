@@ -24,11 +24,12 @@ const SinglePost = ({
   likes,
   comments,
 }) => {
+  const [openLikesModal, setOpenLikesModal] = useState(false); // State for likes modal
   const [opneModal, setOpenModal] = useState(false);
   const [liked, setLiked] = useState(false); // Track like state
   // const [likeCount, setLikeCount] = useState(likes || 0);
   const { user } = useContext(AuthContext);
-  
+
   const { refetch } = usePsots();
 
   // console.log("like", likeCount)
@@ -67,7 +68,10 @@ const SinglePost = ({
   };
 
   useEffect(() => {
-    if (Array.isArray(likes) && likes.some((like) => like.email === user?.email)) {
+    if (
+      Array.isArray(likes) &&
+      likes.some((like) => like.email === user?.email)
+    ) {
       setLiked(true);
     } else {
       setLiked(false);
@@ -84,10 +88,13 @@ const SinglePost = ({
     }
 
     try {
-      const response = await axios.post(`https://facebook-server-phi.vercel.app/posts/like`, {
-        postId,
-        userEmail: user.email,
-      });
+      const response = await axios.post(
+        `https://facebook-server-phi.vercel.app/posts/like`,
+        {
+          postId,
+          userEmail: user.email,
+        }
+      );
 
       if (response.data.success) {
         const { message } = response.data;
@@ -133,7 +140,9 @@ const SinglePost = ({
           />
           <div>
             <h2 className="text-lg font-semibold">{authorName}</h2>
-            <p className="text-xs text-gray-500">{formatUploadedTime(uploadedtime)}</p>
+            <p className="text-xs text-gray-500">
+              {formatUploadedTime(uploadedtime)}
+            </p>
           </div>
         </div>
         {email === user?.email ? (
@@ -170,7 +179,10 @@ const SinglePost = ({
       {/* likes, comments, share */}
       <div>
         <div className="flex items-center justify-between px-4 font-semibold">
-          <p className="flex items-center gap-2  py-2">
+          <p
+            onClick={() => setOpenLikesModal(true)}
+            className="flex items-center gap-2  py-2 hover:underline cursor-pointer"
+          >
             <AiFillLike className="text-[#1877F2] text-2xl" />
             likes {likes.length}
           </p>
@@ -208,7 +220,7 @@ const SinglePost = ({
             onClick={handleLike}
             className="text-xl flex items-center   gap-2"
           >
-           {liked ? (
+            {liked ? (
               <AiFillLike className="text-3xl text-blue-500" />
             ) : (
               <AiOutlineLike className="text-2xl" />
@@ -225,6 +237,32 @@ const SinglePost = ({
           </button>
         </div>
       </div>
+      {/* Likes Modal */}
+      {openLikesModal && <div className="overlayCustom" />}
+      {openLikesModal && (
+        <div className=" PostModal z-20 bg-gray-100 p-5 rounded-md absolute w-[400px] shadow-md">
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-lg font-semibold">Liked by</h1>
+            <button onClick={() => setOpenLikesModal(false)}>
+              <AiFillCloseCircle className="text-2xl" />
+            </button>
+          </div>
+          <div className="space-y-2">
+            {likes.length > 0 ? (
+              likes.map((like, index) => (
+                <p
+                  key={index}
+                  className="bg-white flex p-2 rounded shadow-sm text-xl items-center gap-2"
+                >
+                  <AiFillLike className="text-3xl text-blue-500" /> {like}
+                </p>
+              ))
+            ) : (
+              <p>No likes yet.</p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
