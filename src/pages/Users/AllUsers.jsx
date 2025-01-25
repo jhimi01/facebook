@@ -6,8 +6,6 @@ const AllUsers = () => {
   const { users } = useUsers();
   const { user } = useContext(AuthContext);
   const exceptUSer = users.filter((userr) => userr.email !== user?.email);
-  console.log("except my id", exceptUSer);
-  console.log("users....", users);
   return (
     <div className="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-5 my-10 mx-5">
       {exceptUSer.map((user, index) => (

@@ -58,7 +58,6 @@ const PostModal = ({ setOpenPostModal }) => {
       axios
         .post("https://facebook-server-phi.vercel.app/posts", postData)
         .then((res) => {
-          console.log("post", res.data);
           setOpenPostModal(false);
           Swal.fire({
             position: "top-end",

@@ -22,12 +22,10 @@ const SignUp = () => {
   let from = location.state?.from?.pathname || "/";
   const [loading, setLoading] = useState(false);
 
-  console.log("keyyy", import.meta.env.VITE_IMGBB_API_KEY);
 
   const onSubmit = async (data) => {
     setLoading(true);
     const { name, email, password, image } = data;
-    console.log(data);
 
     // create a FormData onject and append the image file
     const formData = new FormData();
@@ -49,7 +47,6 @@ const SignUp = () => {
       signupemail(email, password)
         .then((result) => {
           const userlogin = result.user;
-          console.log(userlogin);
           updateuser(name, imageUrl)
             .then(() => {
               const users = {
@@ -61,7 +58,6 @@ const SignUp = () => {
                 .post("https://facebook-server-phi.vercel.app/users", users)
                 .then((res) => {
                   setLoading(false);
-                  console.log("post", res.data);
                   Swal.fire({
                     position: "top-end",
                     icon: "success",

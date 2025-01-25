@@ -11,7 +11,6 @@ const ProfilePage = () => {
     window.scroll(0, 0)
   },[])
 
-  console.log(myposts)
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -23,7 +22,6 @@ const ProfilePage = () => {
           throw new Error(`Error: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log(data); // Handle post data
       } catch (error) {
         console.error("Error fetching post:", error);
       }

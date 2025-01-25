@@ -3,7 +3,6 @@ import useUsers from "../../hooks/useUsers";
 
 const Friends = () => {
   const { users } = useUsers();
-  console.log("users", users);
 
   return (
     // <div className="flex overflow-x-auto cart text-sm h-full mb-1">

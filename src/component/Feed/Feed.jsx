@@ -15,7 +15,6 @@ import "./Feed.css";
 const Feed = () => {
   const [openPostModal, setOpenPostModal] = useState(false);
   const { posts, isLoading, refetch } = usePsots();
-  console.log(posts);
   const { user } = useContext(AuthContext);
 
   return (

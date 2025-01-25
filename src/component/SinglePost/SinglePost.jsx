@@ -32,7 +32,6 @@ const SinglePost = ({
 
   const { refetch } = usePsots();
 
-  // console.log("like", likeCount)
 
   // Assuming 'postId' is passed as a prop to your SinglePost component
   const handleDeletePost = async () => {
@@ -47,7 +46,6 @@ const SinglePost = ({
           `https://facebook-server-phi.vercel.app/myposts/${postId}?email=${user?.email}`
         )
         .then((res) => {
-          // console.log("Delete", res.data);
           Swal.fire({
             position: "top-end",
             icon: "success",
